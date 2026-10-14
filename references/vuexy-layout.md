@@ -148,12 +148,93 @@ This template is 100% Pure HTML + Tailwind CSS. You can copy and paste this into
         </div>
       </div>
 
-      <!-- DATA TABLE (Vuexy 1:1 Clean Ledger) -->
-      <div class="bg-white dark:bg-[#2F3349] rounded-md shadow-[0_2px_6px_0_rgba(47,43,61,0.14),0_0_0_1px_rgba(47,43,61,0.04)] overflow-hidden">
-        <div class="p-5 border-b border-[#DBDADE]/50 dark:border-[#434968] flex items-center justify-between">
-          <h5 class="text-[18px] font-semibold text-[#5D596C] dark:text-[#E6E5E8]">Transactions Ledger</h5>
-          <input type="text" placeholder="Search..." class="px-3 py-1.5 text-sm bg-[#F8F7FA] dark:bg-[#25293C] border border-[#DBDADE] dark:border-[#434968] rounded-md focus:outline-none focus:ring-1 focus:ring-[#7367F0]">
+      <!-- VUEXY TABLE SUMMARY BAR (Directly Above Table) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+        <div class="bg-white dark:bg-[#2F3349] p-4 rounded-md border border-[#DBDADE]/40 dark:border-[#434968] shadow-[0_2px_6px_0_rgba(47,43,61,0.06)] flex items-center justify-between">
+          <div>
+            <span class="text-[12px] font-semibold text-[#A5A3AE] uppercase tracking-wider">Total Invoices</span>
+            <h5 class="text-[20px] font-bold text-[#5D596C] dark:text-[#E6E5E8] mt-0.5">1,428</h5>
+          </div>
+          <div class="w-9 h-9 rounded-md bg-[#7367F0]/15 text-[#7367F0] flex items-center justify-center text-lg font-bold">
+            <i class="ti ti-file-analytics"></i>
+          </div>
         </div>
+        <div class="bg-white dark:bg-[#2F3349] p-4 rounded-md border border-[#DBDADE]/40 dark:border-[#434968] shadow-[0_2px_6px_0_rgba(47,43,61,0.06)] flex items-center justify-between">
+          <div>
+            <span class="text-[12px] font-semibold text-[#A5A3AE] uppercase tracking-wider">Paid / Cleared</span>
+            <h5 class="text-[20px] font-bold text-[#28C76F] mt-0.5">1,120</h5>
+          </div>
+          <div class="w-9 h-9 rounded-md bg-[#28C76F]/15 text-[#28C76F] flex items-center justify-center text-lg font-bold">
+            <i class="ti ti-circle-check"></i>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-[#2F3349] p-4 rounded-md border border-[#DBDADE]/40 dark:border-[#434968] shadow-[0_2px_6px_0_rgba(47,43,61,0.06)] flex items-center justify-between">
+          <div>
+            <span class="text-[12px] font-semibold text-[#A5A3AE] uppercase tracking-wider">Pending / Due</span>
+            <h5 class="text-[20px] font-bold text-[#FF9F43] mt-0.5">248</h5>
+          </div>
+          <div class="w-9 h-9 rounded-md bg-[#FF9F43]/15 text-[#FF9F43] flex items-center justify-center text-lg font-bold">
+            <i class="ti ti-clock"></i>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-[#2F3349] p-4 rounded-md border border-[#DBDADE]/40 dark:border-[#434968] shadow-[0_2px_6px_0_rgba(47,43,61,0.06)] flex items-center justify-between">
+          <div>
+            <span class="text-[12px] font-semibold text-[#A5A3AE] uppercase tracking-wider">Total Volume</span>
+            <h5 class="text-[20px] font-bold text-[#5D596C] dark:text-[#E6E5E8] mt-0.5">$84,350.00</h5>
+          </div>
+          <div class="w-9 h-9 rounded-md bg-[#00CFE8]/15 text-[#00CFE8] flex items-center justify-center text-lg font-bold">
+            <i class="ti ti-currency-dollar"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- DATA TABLE (Vuexy 1:1 Clean Ledger with Filters and Export) -->
+      <div class="bg-white dark:bg-[#2F3349] rounded-md shadow-[0_2px_6px_0_rgba(47,43,61,0.14),0_0_0_1px_rgba(47,43,61,0.04)] overflow-hidden">
+        
+        <!-- Table Toolbar -->
+        <div class="p-5 border-b border-[#DBDADE]/50 dark:border-[#434968] flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h5 class="text-[18px] font-semibold text-[#5D596C] dark:text-[#E6E5E8]">Transactions Ledger</h5>
+            <p class="text-[13px] text-[#A5A3AE]">Filter and export transaction entries</p>
+          </div>
+          
+          <div class="flex flex-wrap items-center gap-2.5">
+            <!-- Search -->
+            <div class="relative">
+              <i class="ti ti-search absolute left-3 top-2.5 text-[#A5A3AE] text-base"></i>
+              <input type="text" placeholder="Search invoice..." class="pl-9 pr-3 py-1.5 text-[14px] bg-[#F8F7FA] dark:bg-[#25293C] border border-[#DBDADE] dark:border-[#434968] rounded-md focus:outline-none focus:ring-1 focus:ring-[#7367F0] w-44 sm:w-52">
+            </div>
+
+            <!-- Status Filter -->
+            <select class="px-3 py-1.5 text-[13px] bg-[#F8F7FA] dark:bg-[#25293C] border border-[#DBDADE] dark:border-[#434968] rounded-md text-[#6F6B7D] dark:text-[#B6BEE3] focus:outline-none focus:ring-1 focus:ring-[#7367F0]">
+              <option value="">All Statuses</option>
+              <option value="paid">Paid</option>
+              <option value="pending">Pending</option>
+            </select>
+
+            <!-- Export Button with Dropdown -->
+            <div class="relative group">
+              <button class="h-[34px] px-3.5 rounded-md border border-[#DBDADE] dark:border-[#434968] text-[#5D596C] dark:text-[#E6E5E8] hover:bg-[#F2F2F3] dark:hover:bg-[#353A52] text-[13px] font-medium flex items-center gap-1.5 transition-colors">
+                <i class="ti ti-download text-[16px] text-[#A5A3AE]"></i>
+                <span>Export</span>
+                <i class="ti ti-chevron-down text-xs"></i>
+              </button>
+              <div class="hidden group-hover:block absolute right-0 mt-1 w-40 bg-white dark:bg-[#2F3349] border border-[#DBDADE]/60 dark:border-[#434968] rounded-md shadow-lg py-1 z-30">
+                <a href="#" class="px-3.5 py-1.5 text-[13px] text-[#5D596C] dark:text-[#B6BEE3] hover:bg-[#F8F7FA] dark:hover:bg-[#353A52] flex items-center gap-2">
+                  <i class="ti ti-file-spreadsheet text-emerald-600"></i> Excel
+                </a>
+                <a href="#" class="px-3.5 py-1.5 text-[13px] text-[#5D596C] dark:text-[#B6BEE3] hover:bg-[#F8F7FA] dark:hover:bg-[#353A52] flex items-center gap-2">
+                  <i class="ti ti-file-text text-blue-600"></i> CSV
+                </a>
+                <a href="#" class="px-3.5 py-1.5 text-[13px] text-[#5D596C] dark:text-[#B6BEE3] hover:bg-[#F8F7FA] dark:hover:bg-[#353A52] flex items-center gap-2">
+                  <i class="ti ti-file-type-pdf text-rose-600"></i> PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Table Element -->
         <table class="w-full text-left">
           <thead class="bg-[#F8F7FA] dark:bg-[#25293C] text-[12px] font-semibold uppercase tracking-wider text-[#5D596C] dark:text-[#B6BEE3] border-b border-[#DBDADE]/50 dark:border-[#434968]">
             <tr>

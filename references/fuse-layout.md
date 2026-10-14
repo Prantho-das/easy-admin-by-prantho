@@ -132,10 +132,104 @@ This template is 100% Pure HTML + Tailwind CSS. You can copy and paste this into
         </div>
       </div>
 
-      <!-- FUSE CARD CONTENT -->
-      <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-8 shadow-sm">
-        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-4">Financial Summary</h4>
-        <p class="text-slate-500">Fuse slate container content area</p>
+      <!-- FUSE TABLE SUMMARY METRICS -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Patients</div>
+            <div class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">2,845</div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-lg">
+            <i class="ti ti-users"></i>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Appointments Done</div>
+            <div class="text-2xl font-extrabold text-emerald-600 mt-1">2,410</div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 flex items-center justify-center text-lg">
+            <i class="ti ti-calendar-check"></i>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Pending Visits</div>
+            <div class="text-2xl font-extrabold text-amber-500 mt-1">435</div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 flex items-center justify-center text-lg">
+            <i class="ti ti-clock-hour-4"></i>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-sm flex items-center justify-between">
+          <div>
+            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Revenue Collected</div>
+            <div class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">$96,400</div>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-950/50 text-cyan-600 flex items-center justify-center text-lg">
+            <i class="ti ti-credit-card"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- FUSE CARDED TABLE WITH SEARCH, FILTERS & EXPORT -->
+      <div class="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
+        
+        <!-- Toolbar Header -->
+        <div class="p-6 border-b border-slate-200/80 dark:border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Patient Clinical Registry</h4>
+            <p class="text-xs text-slate-500">Filter, search, and export appointment histories</p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="relative">
+              <i class="ti ti-search absolute left-3.5 top-2.5 text-slate-400 text-base"></i>
+              <input type="text" placeholder="Search patient..." class="pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 w-48 sm:w-60">
+            </div>
+
+            <select class="px-3.5 py-2 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl text-sm text-slate-600 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="">All Treatments</option>
+              <option value="botox">Botox & Fillers</option>
+              <option value="laser">Laser Resurfacing</option>
+            </select>
+
+            <button class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-semibold flex items-center gap-2 shadow-sm shadow-indigo-500/20 transition">
+              <i class="ti ti-download"></i>
+              <span>Export</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead class="bg-slate-50 dark:bg-slate-800/40 text-xs font-bold uppercase tracking-wider text-slate-500 border-b border-slate-200/80 dark:border-slate-800">
+              <tr>
+                <th class="py-3.5 px-6">Patient ID</th>
+                <th class="py-3.5 px-6">Patient Name</th>
+                <th class="py-3.5 px-6">Treatment</th>
+                <th class="py-3.5 px-6">Doctor</th>
+                <th class="py-3.5 px-6">Status</th>
+                <th class="py-3.5 px-6 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-sm text-slate-700 dark:text-slate-300">
+              <tr class="hover:bg-slate-50/70 dark:hover:bg-slate-800/30">
+                <td class="py-4 px-6 font-semibold text-indigo-600 dark:text-indigo-400">#PT-3092</td>
+                <td class="py-4 px-6 font-medium">Farhana Yasmin</td>
+                <td class="py-4 px-6">Chemical Peel - Glycolic</td>
+                <td class="py-4 px-6 text-slate-500">Dr. N. Haque</td>
+                <td class="py-4 px-6">
+                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-200 dark:border-transparent">Confirmed</span>
+                </td>
+                <td class="py-4 px-6 text-right">
+                  <button class="p-1 text-slate-400 hover:text-indigo-600"><i class="ti ti-dots-vertical"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
     </main>

@@ -45,7 +45,19 @@ Any parent menu's sub-navigation items are rendered as **horizontal tabs directl
 
 ---
 
-## 3. UI Components Catalog (Pure HTML)
+## 3. Mandatory Table Architecture (Summary + Filters + Export)
+
+> **CRITICAL RULE**: Every table built under this skill MUST include:
+> 1. **Top Summary Metrics Bar**: Placed directly above the table (4 key metric cards: Total Records, Completed/Paid/In-Stock, Pending/Due, Total Value/Revenue).
+> 2. **Filter & Search Toolbar**: Embedded inside the table header card (Real-time Search input, Status dropdown filter, Date/Category dropdown).
+> 3. **Export Controls**: Action button with export options (Excel, CSV, PDF, Print).
+> 4. **Pagination Footer**: Showing active range and numbered navigation buttons.
+>
+> Reference code: [**`references/components.md`**](./references/components.md)
+
+---
+
+## 4. UI Components Catalog (Pure HTML)
 
 All stat cards, data tables, search bars, and pill badges in pure HTML:
 - View [**`references/components.md`**](./references/components.md).

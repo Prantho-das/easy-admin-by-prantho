@@ -115,11 +115,103 @@ This template is 100% Pure HTML + Tailwind CSS. You can copy and paste this into
         </a>
       </div>
 
-      <!-- MATERIALIZE ELEVATED CARD (Exact 10px Radius) -->
-      <div class="bg-white dark:bg-[#312D4B] rounded-[10px] shadow-[0px_2px_10px_0px_rgba(58,53,65,0.1)] p-6">
-        <h5 class="text-[18px] font-semibold text-[#3A3541] dark:text-[#E7E3FC] mb-4">Stock Overview</h5>
-        <div class="p-4 bg-[#F4F5FA] dark:bg-[#28243D] rounded-lg border border-[#E7E7E8] dark:border-[#464066]">
-          Material elevated container content
+      <!-- MATERIALIZE TABLE SUMMARY (Directly Above Table) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-5">
+        <div class="bg-white dark:bg-[#312D4B] p-4 rounded-[10px] shadow-[0px_2px_10px_0px_rgba(58,53,65,0.08)] flex items-center justify-between">
+          <div>
+            <div class="text-[12px] font-semibold text-[#8A8D93] uppercase tracking-wider">Total Items</div>
+            <div class="text-[20px] font-bold text-[#3A3541] dark:text-[#E7E3FC] mt-0.5">856</div>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#666CFF]/15 text-[#666CFF] flex items-center justify-center text-lg">
+            <i class="ti ti-packages"></i>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-[#312D4B] p-4 rounded-[10px] shadow-[0px_2px_10px_0px_rgba(58,53,65,0.08)] flex items-center justify-between">
+          <div>
+            <div class="text-[12px] font-semibold text-[#8A8D93] uppercase tracking-wider">In Stock</div>
+            <div class="text-[20px] font-bold text-[#72E128] mt-0.5">742</div>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#72E128]/15 text-[#72E128] flex items-center justify-center text-lg">
+            <i class="ti ti-check"></i>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-[#312D4B] p-4 rounded-[10px] shadow-[0px_2px_10px_0px_rgba(58,53,65,0.08)] flex items-center justify-between">
+          <div>
+            <div class="text-[12px] font-semibold text-[#8A8D93] uppercase tracking-wider">Low Stock</div>
+            <div class="text-[20px] font-bold text-[#FF4D49] mt-0.5">14</div>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#FF4D49]/15 text-[#FF4D49] flex items-center justify-center text-lg">
+            <i class="ti ti-alert-triangle"></i>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-[#312D4B] p-4 rounded-[10px] shadow-[0px_2px_10px_0px_rgba(58,53,65,0.08)] flex items-center justify-between">
+          <div>
+            <div class="text-[12px] font-semibold text-[#8A8D93] uppercase tracking-wider">Inventory Value</div>
+            <div class="text-[20px] font-bold text-[#3A3541] dark:text-[#E7E3FC] mt-0.5">$124,500</div>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#26C6F9]/15 text-[#26C6F9] flex items-center justify-center text-lg">
+            <i class="ti ti-coin"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERIALIZE ELEVATED TABLE WITH TOOLBAR -->
+      <div class="bg-white dark:bg-[#312D4B] rounded-[10px] shadow-[0px_2px_10px_0px_rgba(58,53,65,0.1)] overflow-hidden">
+        
+        <!-- Toolbar (Search, Filter, Export) -->
+        <div class="p-5 border-b border-[#E7E7E8] dark:border-[#464066] flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h5 class="text-[18px] font-semibold text-[#3A3541] dark:text-[#E7E3FC]">Stock Inventory Management</h5>
+            <p class="text-[13px] text-[#8A8D93]">Material M3 Table with real-time filters</p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="relative">
+              <i class="ti ti-search absolute left-3 top-2.5 text-[#8A8D93]"></i>
+              <input type="text" placeholder="Search items..." class="pl-9 pr-3 py-1.5 text-sm bg-[#F4F5FA] dark:bg-[#28243D] border border-[#E7E7E8] dark:border-[#464066] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#666CFF]">
+            </div>
+
+            <select class="px-3 py-1.5 text-sm bg-[#F4F5FA] dark:bg-[#28243D] border border-[#E7E7E8] dark:border-[#464066] rounded-lg text-[#544F5A] dark:text-[#CFCCE4] focus:outline-none focus:ring-1 focus:ring-[#666CFF]">
+              <option value="">All Categories</option>
+              <option value="dermatology">Dermatology</option>
+              <option value="laser">Laser Equipment</option>
+            </select>
+
+            <button class="h-[36px] px-4 rounded-lg bg-[#666CFF] hover:bg-[#5A5FE0] text-white text-sm font-medium flex items-center gap-1.5 shadow-[0_2px_6px_rgba(102,108,255,0.35)] transition-colors">
+              <i class="ti ti-download"></i>
+              <span>Export</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead class="bg-[#F4F5FA] dark:bg-[#28243D] text-[12px] font-bold uppercase tracking-wider text-[#8A8D93] border-b border-[#E7E7E8] dark:border-[#464066]">
+              <tr>
+                <th class="py-3 px-5">Item Code</th>
+                <th class="py-3 px-5">Product Name</th>
+                <th class="py-3 px-5">Category</th>
+                <th class="py-3 px-5">Unit Price</th>
+                <th class="py-3 px-5">Status</th>
+                <th class="py-3 px-5 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#E7E7E8] dark:divide-[#464066] text-sm text-[#544F5A] dark:text-[#CFCCE4]">
+              <tr class="hover:bg-[#F4F5FA]/60 dark:hover:bg-[#3D3759]/40">
+                <td class="py-3.5 px-5 font-semibold text-[#666CFF]">SKU-9901</td>
+                <td class="py-3.5 px-5 font-medium">Hyaluronic Acid Serum (50ml)</td>
+                <td class="py-3.5 px-5">Skincare</td>
+                <td class="py-3.5 px-5 font-semibold">$65.00</td>
+                <td class="py-3.5 px-5">
+                  <span class="bg-[#72E128]/15 text-[#72E128] text-xs font-bold px-2 py-0.5 rounded-full">In Stock</span>
+                </td>
+                <td class="py-3.5 px-5 text-right">
+                  <button class="text-[#8A8D93] hover:text-[#666CFF]"><i class="ti ti-dots-vertical"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 

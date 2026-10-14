@@ -24,9 +24,13 @@ npx skills add Prantho-das/easy-admin-by-prantho
    - **Fuse React Admin**: Slate `#0F172A` theme, carded shelf header, 16px radius containers.
 2. **Top Horizontal Child Navigation Tabs**:
    - Submenus automatically render as sleek horizontal tabs directly above the page content area.
-3. **100% Pure HTML + Tailwind CSS**:
+3. **Advanced Table Architecture**:
+   - **Top Summary Cards**: 4-column metrics bar (Total, Paid, Pending, Volume) directly above every table.
+   - **Integrated Toolbar**: Search input, Status dropdown filter, Date/Category dropdown.
+   - **Export Button**: Ready-to-use export triggers (Excel, CSV, PDF, Print).
+4. **100% Pure HTML + Tailwind CSS**:
    - Zero framework lock-in. Works directly in Vanilla HTML, Laravel Blade, Vue, React, Next.js, Nuxt, Django, or Asp.Net.
-4. **Multi-Theme Engine**:
+5. **Multi-Theme Engine**:
    - Centralized CSS variable engine with support for instant theme switching and custom themes.
 
 ---
